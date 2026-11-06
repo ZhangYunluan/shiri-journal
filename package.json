@@ -1,0 +1,28 @@
+{
+  "name": "shiri-life-journal",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "preview": "node preview-server.mjs",
+    "setup:ai": "node scripts/setup-local-ai.mjs",
+    "dev": "node scripts/dev-preview.mjs",
+    "check:source": "node scripts/check-team-source.mjs",
+    "check:assets": "node scripts/check-local-assets.mjs",
+    "test:browser:chat": "node scripts/verify-chat-compat.mjs",
+    "test:browser:friends": "node scripts/verify-friend-gallery.mjs",
+    "test:browser:record": "node scripts/verify-ux-phase1.mjs",
+    "demo": "node demo/server.mjs",
+    "build:demo": "node scripts/build-demo.mjs",
+    "test:browser:demo": "node scripts/verify-public-demo.mjs",
+    "check:public": "node scripts/check-public-release.mjs"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.8",
+    "playwright": "1.62.1"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "version": "0.8.3",
+  "license": "MIT"
+}

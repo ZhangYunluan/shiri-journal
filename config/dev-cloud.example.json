@@ -1,0 +1,8 @@
+{
+  "envId": "REPLACE_WITH_SEPARATE_TEST_ENVIRONMENT",
+  "region": "ap-shanghai",
+  "publishableKey": "REPLACE_WITH_TEST_ENVIRONMENT_ANON_PUBLISHABLE_KEY",
+  "testUrl": "",
+  "mediaUrl": "",
+  "aiUrl": ""
+}

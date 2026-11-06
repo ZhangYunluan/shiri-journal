@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; connect-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <title>拾日 · 隔离验收</title>
+    <link rel="stylesheet" href="life.css" />
+  </head>
+  <body>
+    <main style="max-width: 900px; margin: auto">
+      <h1>拾日 · 隔离验收</h1>
+      <p>
+        仅在 4176 或 4178 端口运行。测试数据位于独立站点空间，不影响 4175 的用户记录。
+      </p>
+      <p>
+        <button class="button primary" id="run-storage">
+          测试本地数据闭环
+        </button>
+        <button class="button" id="run-models">测试已部署本地模型</button>
+        <button class="button" id="run-pwa">测试手机安装配置</button>
+      </p>
+      <pre id="results" style="white-space: pre-wrap"></pre>
+    </main>
+    <script type="module" src="tests/browser-tests.mjs"></script>
+  </body>
+</html>

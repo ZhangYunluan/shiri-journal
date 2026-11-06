@@ -1,0 +1,10 @@
+{
+  "appId": "cn.shiri.life",
+  "appName": "拾日",
+  "webDir": "www",
+  "loggingBehavior": "none",
+  "server": { "hostname": "localhost", "androidScheme": "https" },
+  "android": { "allowMixedContent": false, "webContentsDebuggingEnabled": false },
+  "ios": { "contentInset": "never", "preferredContentMode": "mobile", "webContentsDebuggingEnabled": false },
+  "plugins": { "CapacitorCookies": { "enabled": false }, "CapacitorHttp": { "enabled": false } }
+}

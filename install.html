@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#141715">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>安装拾日 · 把生活留在身边</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="install.css">
+</head>
+<body>
+  <main>
+    <a class="brand" href="./"><img src="icons/icon-192.png" width="40" height="40" alt="">拾日 <span>私人生活日志</span></a>
+    <section class="hero" aria-labelledby="title">
+      <p class="eyebrow">生活有迹 · 随身记录</p>
+      <h1 id="title">把每一天，<br>轻轻收好。</h1>
+      <p class="intro">照片、随想、生活复盘。<br>安装到手机桌面，下一次记录只需轻点。</p>
+      <div class="actions">
+        <button id="install" type="button" aria-controls="install-help" aria-expanded="false">安装到手机</button>
+        <a class="secondary" id="open" href="./">打开拾日</a>
+        <a class="secondary" href="#steps">查看安装步骤 ↓</a>
+      </div>
+      <p id="status" role="status" aria-live="polite">点击“安装到手机”：支持直接安装时弹出系统窗口，否则显示添加到桌面步骤。</p>
+      <noscript><p>请打开浏览器菜单，查找“安装应用”或“添加到主屏幕”。本页按钮需要启用 JavaScript。</p></noscript>
+      <p class="access">当前站点需要登录站点所有者的 ChatGPT 账号。微信、邮箱及手机号直接登录尚未接通。</p>
+    </section>
+    <section class="card install-help" id="install-help" aria-labelledby="help-title" hidden>
+      <h2 id="help-title" tabindex="-1">通过浏览器添加到桌面</h2>
+      <p id="help-message">当前浏览器尚未提供系统安装弹窗。请按下方步骤操作；网页不能代替你点击浏览器菜单。</p>
+      <ol>
+        <li><strong>打开浏览器菜单</strong><p>点击浏览器顶部或底部的“⋮”“…”或菜单图标。</p></li>
+        <li><strong>查找桌面入口</strong><p>选择“添加到桌面”“添加到主屏幕”或“安装应用”。部分浏览器放在“工具箱”“更多”或“添加至”中；具体名称以你的浏览器为准。</p></li>
+        <li><strong>确认后回到手机桌面</strong><p>找到“拾日”图标。仅添加快捷方式时，打开后仍会进入浏览器。</p></li>
+      </ol>
+      <p class="notice">菜单中也没有此功能？复制下方网址，到 Chrome 中打开再安装。不同浏览器的数据不互通；已有记录请先导出备份。</p>
+      <label for="install-url">安装页网址</label>
+      <input id="install-url" type="url" readonly aria-describedby="copy-status">
+      <div class="actions"><button id="copy-url" type="button">复制安装网址</button><button id="close-help" class="quiet" type="button">收起步骤</button></div>
+      <p id="copy-status" role="status" aria-live="polite">也可以长按上方网址复制。</p>
+    </section>
+    <section class="card" id="steps" aria-labelledby="steps-title">
+      <p class="eyebrow">ANDROID / 安卓</p>
+      <h2 id="steps-title">三步，留在手机桌面</h2>
+      <p id="wechat-tip" class="notice" hidden>你正在微信内打开。请点右上角“…”→“在浏览器打开”，再按下方步骤安装。</p>
+      <ol>
+        <li><strong>用 Chrome 打开这个网址</strong><p>先完成站点登录。使用常用浏览器，之后也从同一入口记录。</p></li>
+        <li><strong>点击“安装到手机”</strong><p>支持时弹出系统安装窗口；否则按钮会展开添加到桌面步骤。可用菜单由手机和浏览器决定。</p></li>
+        <li><strong>从桌面进入拾日</strong><p>第一次联网打开后，界面会缓存。开启本地 AI 时需下载公开模型，建议使用 Wi-Fi。</p></li>
+      </ol>
+      <p class="note">如果浏览器只提供快捷方式，可先添加快捷方式使用。iPhone 用户可在 Safari 的分享菜单选择“添加到主屏幕”。</p>
+    </section>
+    <section class="grid" aria-label="使用须知">
+      <article class="card"><h2>生活留在本地</h2><p>照片、笔记和报告保存在当前浏览器。登录不会同步生活数据。换手机或浏览器前，请在设置里导出完整备份。</p></article>
+      <article class="card"><h2>你选择，才会读取</h2><p>添加照片时由你主动选择相册内容。网页不能在锁屏后定时抓取相册；晚间提醒需要页面运行。</p></article>
+    </section>
+    <section class="card" aria-labelledby="wechat-title">
+      <p class="eyebrow">账号接入 · 待微信应用审核</p>
+      <h2 id="wechat-title">微信登录申请指引</h2>
+      <p>安装到桌面不会自动获得微信登录能力。先确定使用场景，再申请对应类型，避免重复申请。</p>
+      <details><summary>1. 选择正确的应用类型</summary><p>电脑网站扫码：微信开放平台“网站应用”。安卓 APK 内唤起微信：微信开放平台“移动应用”，还需正式包名与签名。微信内网页授权：使用具备相应权限的公众号。当前交付的是 PWA，没有 APK 包名和签名，不应当作移动应用提交。</p></details>
+      <details><summary>2. 注册账号并查看主体资格</summary><p>在微信开放平台注册账号，按后台要求完成开发者资料、主体认证和应用资料。个人或组织可申请的能力、材料、费用与审核要求以微信后台当时提示为准；普通个人微信账号不是应用的 AppID。</p><a href="https://open.weixin.qq.com/" target="_blank" rel="noopener noreferrer">前往微信开放平台 ↗</a></details>
+      <details><summary>3. 准备应用资料与可验证地址</summary><p>应用名可填“拾日生活日志”，说明为“记录个人生活照片与笔记，生成多周期复盘，生活内容在设备本地保存”。准备图标、截图、真实主体资料、隐私说明，以及所选类型要求的域名或安装包。当前私有站点有 ChatGPT 访问限制，不能假设它可直接通过微信域名验证；正式回调地址需在认证服务部署后确认。</p></details>
+      <details><summary>4. 审核通过后配置凭据</summary><p>获取应用 AppID，并在服务端的密钥配置界面保存 AppSecret。不要把 AppSecret 发到聊天、写入网页或代码仓库。完成后才能接通真实微信授权、回调校验和安全会话，再在安卓手机验收。</p></details>
+      <p class="note">微信审核通过和真实登录测试完成前，本页不会显示可用的微信登录按钮。账号认证需要与微信及认证服务器通信，生活内容仍应留在本地。</p>
+      <p class="references">参考：<a href="https://cloud.tencent.com/document/product/1441/62649" target="_blank" rel="noopener noreferrer">腾讯云：PC 微信登录</a> · <a href="https://cloud.tencent.com/document/product/1441/68675" target="_blank" rel="noopener noreferrer">腾讯云：微信授权登录</a></p>
+    </section>
+    <footer>日子有迹，生活有序。<a href="./">回到日志 →</a></footer>
+  </main>
+  <script type="module" src="install.mjs"></script>
+</body>
+</html>

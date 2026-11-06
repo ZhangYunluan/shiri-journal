@@ -1,0 +1,38 @@
+.demo-body { padding-bottom: env(safe-area-inset-bottom, 0px); }
+.demo-header, .demo-notice, .demo-nav, .demo-main { width: min(100% - 40px, 1020px); margin-inline: auto; }
+.demo-header { display: flex; justify-content: space-between; align-items: center; padding-block: 24px 14px; }
+.demo-brand { display: flex; gap: 10px; align-items: center; text-decoration: none; color: var(--ink); font-size: 23px; font-weight: 650; }
+.demo-brand small { font-size: 13px; color: var(--muted); font-weight: 400; }
+.demo-notice { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; padding-block: 10px 16px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--line); }
+.demo-notice strong { color: var(--accent); }
+.demo-notice details { margin-left: auto; max-width: 64ch; }
+.demo-notice p { margin-bottom: 0; }
+.demo-nav { display: flex; gap: 24px; padding-block: 16px; position: sticky; top: 0; z-index: var(--z-sticky); background: var(--bg); border-bottom: 1px solid var(--line); }
+.demo-nav a { padding-block: 8px; color: var(--muted); text-decoration: none; white-space: nowrap; }
+.demo-nav a[aria-current] { color: var(--accent); box-shadow: 0 2px 0 var(--accent); }
+.demo-main { padding-block: 30px 60px; min-width: 0; }
+.demo-main .journey-hero { margin-top: 0; }
+.demo-main .report-aside { align-self: start; }
+.demo-main .batch-toolbar { bottom: 16px; }
+.demo-toast { position: fixed; bottom: max(24px, env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%); width: min(90%, 460px); padding: 14px 20px; border-radius: 12px; background: var(--accent); color: var(--accent-ink); z-index: var(--z-toast); font-weight: 600; box-shadow: 0 3px 0 #71865e; }
+#demo-dialog { width: min(92vw, 540px); max-height: 88vh; padding: 22px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 16px; overflow-y: auto; }
+#demo-dialog::backdrop { background: rgb(0 0 0 / .65); }
+#demo-dialog .demo-dialog-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 18px; }
+#demo-dialog h2 { font-size: 20px; margin: 0; }
+#demo-dialog form { display: grid; gap: 16px; }
+#demo-dialog .demo-preview { width: 100%; max-height: 240px; object-fit: cover; border-radius: 10px; }
+.demo-picker { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.demo-picker button { padding: 0; overflow: hidden; background: var(--surface2); border: 1px solid var(--line); border-radius: 12px; color: var(--ink); cursor: pointer; }
+.demo-picker img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+.demo-picker span { display: block; padding: 10px 4px; }
+.demo-full-image { width: 100%; max-height: 65vh; object-fit: contain; }
+@media (max-width: 520px) {
+  .demo-header, .demo-notice, .demo-nav, .demo-main { width: calc(100% - 28px); }
+  .demo-main { padding-top: 22px; }
+  .demo-notice { gap: 4px 10px; }
+  .demo-notice details { flex-basis: 100%; margin-left: 0; }
+  .demo-nav { gap: 0; justify-content: space-between; font-size: 13px; }
+  .demo-header { padding-top: 18px; }
+  .demo-main .report-toolbar { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { .demo-body *, .demo-body *::before, .demo-body *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }

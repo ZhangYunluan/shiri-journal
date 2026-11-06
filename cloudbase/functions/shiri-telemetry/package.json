@@ -1,0 +1,1 @@
+{"name":"shiri-telemetry","version":"0.6.1","private":true,"scripts":{"start":"node index.js"},"engines":{"node":">=20"}}

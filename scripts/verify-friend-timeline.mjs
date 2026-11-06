@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {resolve} from 'node:path';
+import {pathToFileURL} from 'node:url';
+process.env.PORT='4199';await import('../preview-server.mjs');
+const {chromium}=await import(pathToFileURL(resolve(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs')));
+const browser=await chromium.launch({headless:true,executablePath:resolve(process.env.LOCALAPPDATA,'ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-win64/chrome-headless-shell.exe')});
+try{const page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'});await page.goto('http://127.0.0.1:4199/tests/cloudbase-friends-panel.html');
+await page.evaluate(async()=>{const {timeline,mountPhotos}=await import('/src/friend-timeline.mjs');window.photoCalls=0;window.denied=false;document.body.innerHTML='<main id="fixture">'+timeline([{date:'2026-10-22',title:'IMG202610221100',mediaId:'a'},{date:'2026-10-22',title:'晚饭',note:'一起吃饭',mediaId:'b'},{date:'2026-10-20',title:'旧照片',mediaId:'c'}],'friend')+'</main>';const root=document.querySelector('#fixture');window.clean=mountPhotos(root,{photo:async()=>{window.photoCalls++;if(window.denied)throw Object.assign(Error('denied'),{status:403});return await(await fetch('/tests/fixtures/test-receipt.png')).blob();}},()=>root.isConnected);});
+await page.waitForSelector('.friend-thumbnail img');assert.equal(await page.locator('.friend-day').count(),2);assert.equal(await page.locator('.friend-day').first().locator('.friend-thumbnail').count(),2);assert.equal(await page.locator('text=IMG202610221100').count(),0);
+await page.locator('.friend-thumbnail').first().click();await page.waitForSelector('dialog img');await page.locator('[data-next]').click();await page.waitForSelector('dialog img');await page.evaluate(()=>window.denied=true);await page.locator('[data-next]').click();await page.waitForFunction(()=>!document.querySelector('dialog'));assert.equal(await page.locator('.friend-thumbnail img').count(),0);
+for(const width of [320,390,430,1280]){await page.setViewportSize({width,height:844});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));}console.log('PASS grouped dates, automatic authorized photos, title filtering, gallery navigation, denied access cache cleanup, widths');
+}finally{await browser.close();}process.exit(0);

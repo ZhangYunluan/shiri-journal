@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="description" content="拾日交互演示。用示例数据体验照片审核、生活记录与规则复盘。">
+  <title>拾日 Shiri · 交互演示</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../life.css">
+  <link rel="stylesheet" href="./demo.css">
+</head>
+<body class="demo-body">
+  <a class="skip-link" href="#demo-main">跳到内容</a>
+  <header class="demo-header">
+    <a class="demo-brand" href="#dashboard"><img src="../favicon.svg" alt="" width="34" height="34">拾日 <small>Shiri</small></a>
+    <button class="button ghost small-button" id="reset-demo">重置演示</button>
+  </header>
+  <div class="demo-notice"><strong>交互演示</strong><span>示例数据 · 仅保存在当前浏览器</span><details><summary>演示范围</summary><p>这里演示本地整理、保存和规则复盘，使用原创示意图片。完整 APP 的账号、系统相册、好友与 AI 需要另行配置。本演示不调用这些服务。</p></details></div>
+  <nav class="demo-nav" aria-label="演示页面">
+    <a href="#dashboard">今天</a><a href="#library">照片整理</a><a href="#categories">生活分类</a><a href="#reports">回看自己</a>
+  </nav>
+  <main id="demo-main" class="demo-main"></main>
+  <dialog id="demo-dialog" aria-labelledby="demo-dialog-title"></dialog>
+  <div class="demo-toast" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="./app.mjs"></script>
+</body>
+</html>
